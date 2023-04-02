@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业2</title>
+</head>
+<body>
+    <script>
+        // 构造函数命名要求大驼峰(非强制)--首字母大写
+        // 让使用者一看就能猜到是个 构造函数, 要用new 触发
+        function Cube(length,width,high) {
+            this.length = length
+            this.width = width
+            this.high = high
+
+        }
+        Cube.prototype.area = function () {
+            // console.log('面积',[(this.length*this.width)+(this.length*this.high)+(this.width*this.high)]*2);  
+            return [(this.length*this.width)+(this.length*this.high)+(this.width*this.high)]*2
+        }
+
+        Cube.prototype.volume = function () {
+            // console.log('体积',);
+            return this.length*this.width*this.high
+        }
+
+        var xiaoman = new Cube(1,1,1)
+        console.log(xiaoman.area());
+        console.log(xiaoman.volume());
+        
+    </script>
+</body>
+</html>

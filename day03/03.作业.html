@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业3</title>
+</head>
+<body>
+    <script>
+        //利用原型为数组增加一个upper方法
+        Array.prototype.upper = function (params) {
+            //遍历数组的每一项，变为大写后 更新覆盖原来的值
+            for (let i = 0; i < this.length; i++) {
+                var val = this[i];  //序号取值
+                val = val.toUpperCase()   //先写个字符串''.to有个提示防止代码写错
+                this[i] = val   //变大的值，覆盖掉序号对应的元素
+
+                //this[i] = this[i].toUpperCase()  简写
+            }
+        }
+        var names = ['mike', 'lucy', 'lily', 'john']
+
+        names.upper()
+
+        console.log(names) // ['MIKE', 'LUCY', 'LILY', 'JOHN']
+    </script>
+</body>
+</html>

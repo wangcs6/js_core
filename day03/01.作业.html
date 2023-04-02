@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+</head>
+<body>
+    <script>
+        var a = 10      //全局污染 window.a
+
+        function test(){
+            // new处理：隐式var this ={ }
+            this.a = 100   //window.a = 100
+        }
+
+        new test()
+        console.log(a) //10  其中的this是实例对象
+
+        test()
+        console.log(a)  //100 其中的this是window
+    </script>
+</body>
+</html>
