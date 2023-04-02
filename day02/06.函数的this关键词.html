@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的this关键词</title>
+</head>
+<body>
+    <script>
+    // 函数中带有两个隐式的参数
+    // - arguments: 函数收到的所有实参
+    // - this: 函数运行时所在的对象, 其 主人
+
+    // 简单粗暴的理解, 从格式上判断:
+    // 对象.方法名() : 方法的this就是前方的对象;  emp.play()
+    // 函数名() : 前面没有对象, this就是window
+    
+    function x() {
+        function y() {
+            console.log(this);  //这里的this就是window
+            
+        }
+        y()  //前面没有东西
+    }
+    x()
+
+    var stu2 = {
+        snaem:'小曼',
+        paly: function () {
+            console.log(this,'在学习');
+            
+        }
+    }
+    function show(x) {
+        x()   //this是什么  ---window
+        console.log(arguments);
+        // 从 arguments对象中,读取方法 然后调用: 方法的所属人就是 arguments -this
+        arguments[0]() // 问: this 是什么
+    }
+
+    show(stu2.paly)
+    console.log('--------------------------');
+    
+    function DaRen() {
+        console.log('this:',this);
+        console.log('在njupt疯狂打人'); 
+    }
+    var emp1 = {enname:'张文豪',DaRen}
+    emp1.DaRen() // 点语法
+    emp1['DaRen']() //方括号语法, 下标取值, 和点语法是等价关系
+
+    var emp2 = {ennme:"琪弟",DaRen}
+    emp2.DaRen()
+    // 没有前缀对象, 直接触发函数 :  this就是 window
+    DaRen()
+
+    //面试题：
+     // 函数分两种状态: 静态 和 动态
+    // 函数的this取决于:  !!!运行时!!! 用()调用  所在对象
+    var stu1 = {
+        sname:"凯凯",
+        palygame:function () {
+            console.log(this,'在玩lol');
+            
+        }
+    }
+    var palygame = stu1.palygame
+
+    // 运行时, 没有前缀: 则this是window
+    palygame()   //谁在玩游戏？---'window'在玩lol
+
+
+    var emp1 = {
+        ename:"豪豪",
+        children:{
+            cname:"张小豪",
+            paly: function () {
+                console.log(this,'在玩王者农药');
+                
+            }
+        }
+    }
+    // 
+    emp1.children.paly()   //{cname: '张小豪', paly: ƒ} '在玩王者农药'  this是方法的主人
+    </script>
+</body>
+</html>

@@ -23,29 +23,29 @@
             }else{
              if (arguments.length==1) {
                 var n = 0
-                for (let i = 0; i < arguments[0]; i++) {
+                for (let i = 0; i <= arguments[0]; i++) {
                     n += i
                     
                 }
-                console.log(n);
+                console.log(n);  //5050
                 
              }
              if (arguments.length==2) {
-                var n = arguments[0]
-                for (let i = arguments[0]; i < arguments[1]; i++) {
+                var n = 0
+                for (let i = arguments[0]; i <= arguments[1]; i++) {
                     n+=i
                     
                 }
-                console.log(n);
+                console.log(n);  //3825
                 
              }
              if (arguments.length==3) {
-                var n = arguments[0]
-                for (let i = arguments[0]; i < arguments[1]; i+=arguments[2]) {
+                var n = 0
+                for (let i = arguments[0]; i <= arguments[1]; i+=arguments[2]) {
                     n += i
                     
                 }
-                console.log(n);
+                console.log(n);  //1950
                 
              }
             }
@@ -55,6 +55,28 @@
         getSum(50,100,2)
         getSum([1,3,5,7,9])  //0:(5) [1,3,5,7,9]
         // 6.1号，1小时28分
+    </script>
+
+    <script>
+
+        function show() {
+            console.log(arguments);
+            //读取'跳'
+            console.log(arguments[3][1]);
+            
+        }
+        show('mike','true','123',['唱','跳'])
+        var x = {
+            desc:{
+                skills:[
+                    '唱','跳','rap',['跨栏','扣篮']
+                ]
+            }
+        }
+
+        //如何从x中读取'扣篮'
+        console.log(x.desc.skills[3][1]);
+        
     </script>
 </body>
 </html>

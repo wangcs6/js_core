@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        // 只要书写  'use strict'  在JS脚本的顶部, 那么其下方的代码就会进入严格模式
+        // 1. 没有用var声明过的变量, 不允许使用! -- 有效规避写错单词导致的全局污染 'use strict'
+        // 严格模式: 来自 ES5 -- JS第五个版本, 在2009年出版. 也称为ES2009
+        // 可以为JS开启严格模式: 很多存在风险的代码 书写时会产生报错, 辅助程序员写出更加健壮的代码
+
+        var servername = 'localhost'
+        //ctrl+[ 同时几行向左缩进
+        // 壮壮: 经常会写错单词, 例如下方:  少写个r
+        // 默认的前缀是 window.  
+        // 相当于是 window.servename = '127.0.0.1'
+        // 会在window中新增了一个属性, 即全局变量
+        // 这个全局变量的增加 并非我们的本意, 而是以为写错单词导致的 -- 全局变量污染
+
+        //修改
+        servername = '127.0.0.1'
+
+        console.log(window);
+        
+
+    </script>
+</body>
+</html>

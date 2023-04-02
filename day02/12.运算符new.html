@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符new</title>
+</head>
+<body>
+    <script>
+        // new: 作者提供的 辅助构造函数的 运算符, 可以自动完成固定的代码--->重要
+
+        // 面试题: new运算符做了什么事?   1.创建对象  2.设定原型  3.返回对象
+
+        // 再次创建矩形构造函数
+        function Rect(length,width) {
+            // new运算符会自动声明名字是 this 的变量 
+            // this: 这个;  外国人理解: 这个对象
+            // var obj = {}    写完new之后就直接不用写了
+            // obj.length = length  改obj为this
+            // obj.width = width    改obj为this
+            this.length = length
+            this.width = width
+            // prototype是对象类型, 引用类型.  地址存储到 __proto__ 里
+            // obj.__proto__ = Rect.prototype  写完new之后就直接不用写了
+
+            // return obj  写完new之后就直接不用写了
+        }
+
+        Rect.prototype.area = function () {
+            console.log('面积',this.length*this.width);
+            
+        }
+        Rect.prototype.perimeter = function () {
+            console.log('周长',(this.length+this.width)*2);
+            
+        }
+
+        var r1 = new Rect(10,5)
+        r1.area()
+        r1.perimeter()
+    </script>
+</body>
+</html>

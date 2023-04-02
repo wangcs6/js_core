@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看一看系统的契约</title>
+</head>
+<body>
+    <script>
+        var names = ['贝贝','晶晶','欢欢']
+
+        //names里有push属性吗？  为什么能用？它在哪
+        names.push("迎迎")
+        console.log(names);
+        // console.dir(names)
+
+        // 数组类型对象的方法, 都存储在 数组构造函数的 仓库里: prototype
+        console.log(Array.prototype);
+        
+        // 面试经常问：对象的原型链 和 其构造函数的原型是否相同？
+        console.log(names.__proto__ == Array.prototype);  //true
+
+        
+    </script>
+</body>
+</html>

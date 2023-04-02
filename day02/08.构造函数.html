@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+<body>
+    <script>
+        //构造函数：负责创造一类固定属性的方法的对象
+        //现实生活：各种工厂流水线 都属于构造函数的功能
+        //江南皮革厂 -> 皮送出去，生产出皮带，样式都一样
+        
+        //制作矩形对象的工厂：
+        function Rect(length,width) {
+            var obj = {}
+            obj.length = length
+            obj.width = width
+
+            // function: 用来声明函数 -- 开辟内存,保存一段函数
+            // 每次调用构造函数, 都会触发这个代码 
+            // 每次创建对象, 都要临时生成一个函数 装配到对象上使用 -- 是不是浪费性能?
+            obj.area = function () {
+                console.log('面积',this.length*this.width);  //area没有被调用之前谁也不知道this是谁
+                
+            }
+
+            obj.perimeter = function () {
+                console.log('周长',(this.length+this.width)*2);
+                
+            }
+            return obj
+        }
+
+        var r1 = Rect(50,10)
+        console.log(r1);
+
+        // 函数的this必须是调用时才能确认
+        r1.area()   //这里的this就是r1
+
+        var r2 = Rect(30,6)
+        r2.area()  //this是什么？  r2
+
+        // 小曼家开了个生产笔记本电脑的工厂
+        // 用 一些零件 就可以生产出笔记本电脑
+        // 需要安装操作系统:
+        // 小曼的做法: 每生产一台笔记本,就临时书写一套操作系统, 安装到笔记本上 -- 耗时3个月, 非常低效
+
+        // 正常做法: 只要提前写一套操作系统 公用的 -- 保存在 小曼家工厂的仓库里
+        //       电脑直接安装这套系统就可以
+    </script>
+</body>
+</html>

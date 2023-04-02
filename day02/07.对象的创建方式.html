@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的创建方式</title>
+</head>
+<body>
+    <script>
+        // 创建对象的方式基本分两种: 语法糖 和 构造写法
+
+        // 创造一个数组
+        var names = ['贝贝','晶晶','欢欢','迎迎','妮妮']
+        console.log(name);
+
+        //构造方式
+        var emps = new Array('贝贝','晶晶','欢欢','迎迎','妮妮')
+        console.log(emps);
+
+        //函数
+        function show(name,age) {
+            console.log('我是',name,'年龄',age);
+            
+        }
+        show('小曼',20)
+
+        // 函数采用构造方式创建，用的不多
+        var display = new Function('name','age',
+            "console.log('我是',name,'年龄',age)")
+
+        display('小曼',21)
+
+        //对象能用构造函数方式创建，我们来制作一个自己的构造函数
+        
+    </script>
+</body>
+</html>

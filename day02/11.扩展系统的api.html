@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展系统的api</title>
+</head>
+<body>
+    <script>
+        // 系统提供的数组原型中的方法，如果不够用，不好用，利用原型可以进行扩展
+
+        // 实际开发时: 小曼同学(高手) -> 负责开发这种扩展的易用性的JS框架
+        // 给wangcs同学用 : 下载JS文件, 引入到当前项目中使用 -- 并且 直喊 666--并且掉头发
+
+        // 向原型中加入
+        Array.prototype.sum = function () {
+            var n = 0
+            for (let i = 0; i < this.length; i++) {  //这里的this就是nums
+                n += this[i]   
+            }
+            return n
+        }
+
+        Array.prototype.avg = function () {
+            // var n = 0
+            // for (let i = 0; i < this.length; i++) {
+            //     n += this[i]
+            
+            // }
+            // return n /= this.length 
+            return this.sum()/this.length
+
+        }
+        var nums = [12,3,56,78,786]
+        
+        //练习：
+        console.log(nums.avg());  //得到平均数
+        
+        console.log(nums);  //查看原型中是否有sum方法
+
+
+        //求出总和
+        console.log(nums.sum());
+        
+    </script>
+</body>
+</html>

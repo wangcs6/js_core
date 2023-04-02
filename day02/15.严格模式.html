@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式</title>
+</head>
+<body>
+    <script>
+        // 'use strict'
+        // 严格模式下: 阻止静默失败, 有错大声说出来
+
+        // 静默失败: 代码运行失败 但是后台没有报错
+        var emp ={enname:"xiaoman",age:22}
+
+        // freeze: 冻结; 冻结对象后 对象就不能被修改
+        Object.freeze(emp)
+        emp.boyFriend = 'wangcs'
+        console.log(emp);
+        
+    </script>
+</body>
+</html>

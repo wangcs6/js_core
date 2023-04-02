@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型设计</title>
+</head>
+<body>
+    <script>
+        //
+        function Rect(length,width) {
+            var obj = {}
+
+            obj.length = length
+            obj,width = width
+            obj.__proto__ = Rect.prototype  //链条 -->卡莉斯塔的契约
+            // 如何让 对象 obj 知道是哪个函数生的他
+            // 对象的 __proto__ 属性:  称为 原型链
+            // 对象通过 __proto__ 属性, 链接到他爸爸的原型
+            return obj
+        }
+        // JS作者, 为构造函数提供了一个仓库, 用来存放公共的方法
+        // prototype: 原型,  就是公共的仓库
+        console.dir(Rect)
+        Rect.prototype.area = function () {
+            console.log('面积',this.length*this.width);
+            
+        }
+
+        Rect.prototype.perimeter = function () {
+            console.log('周长',(this.length+this.width)*2);
+            
+        }
+        // 小曼家.仓库.操作系统 = function(){}
+
+        var r1 = Rect(10,50)
+        console.log(r1)
+
+        // r1中没有area, 就会到原型链 对应的共享仓库中查找
+        // 换个案例:
+        // 壮壮把小亮打了, 成特亮 跟 壮壮要钱 5W 做赔偿,  壮壮没钱怎么办?? 通过壮壮的 原型链, 找到其父亲要钱
+        // 调用 r1.area
+        r1.area()
+        
+    </script>
+</body>
+</html>
