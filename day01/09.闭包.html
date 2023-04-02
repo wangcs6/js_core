@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+// 函数对象中有一个属性: scopes -- 作用域们
+// 以 b 函数为例:
+// -- 第一个作用域: a函数作用域 -- 闭包Closure
+// -- 第二个作用域: 全局作用域
+// 总结: 函数运行时会产生临时的函数作用域, 如果这个函数作用域被 子函数保存了, 则称为闭包
+// 具体: a函数作用域, 被 b函数保存在 scopes 属性里, 就说: a函数作用域是b的闭包
+// 为什么: b函数使用了 a 函数作用域中的变量, 假设b函数没有存, 则 a函数执行结束后会自动释放, 导致 b 函数中的 abb 无法使用
+        function a() {
+            var abb ='ABB'  //此变量存储在a函数作用域中
+
+            function b() {
+                // 根据上午提到的作用域链: b函数中没有变量 abb, 
+                // 所以查找到 上级a函数作用域的abb
+                console.log(abb);
+            }
+            return b
+        }
+        //b存储的是a函数的返回值，即b函数
+        var b = a()   //调用函数a，生成一个函数作用域
+        b()
+        console.dir(b)  //dir:直接输出函数对象，与log不同
+    </script>
+</body>
+</html>

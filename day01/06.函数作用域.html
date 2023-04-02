@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数作用域</title>
+</head>
+<body>
+    <script>
+        // 函数作用域对象:
+    // 函数在运行时, 临时创建的对象, 用于存储函数中声明的变量们. 当函数运行完毕后, 会自动销毁 来节省内存
+
+    // 在 ES6, 即JS的第六个版本之前, 只有全局和 函数(局部)两种作用域
+
+    // 函数分两种状态:
+    // 状态1: 静态 -- 函数书写完毕  -- 涛哥买了个微波炉
+    // 状态2: 动态 -- 函数触发后, 用()调用 -- 涛哥启动了微波炉(热大腰子)
+        
+        function a() {
+            var b=22
+            var c=33
+            var d=44
+
+            function e() {
+            console.log(66); 
+            }
+    // 每次触发函数, 函数运行起来后, 会`临时`创建一个对象, 来存储其中的变量们
+    // 浏览器提供了 断点调试 功能, 可以查看到函数运行时的状态            
+        }
+        a()  
+    </script>
+</body>
+</html>

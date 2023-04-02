@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i = 1
+
+        function b(){
+            for(var i = 0; i<10; i++){
+                a()    //a中的i 在声明时就捆绑成全局的i
+            }
+        }
+
+        // 根据作用域链的就近原则, 函数中使用了变量i
+        function a(){
+            console.log(i)   //结果为10个1，这里的i绑定为全局的变量i,存储在scopes里,这里的i绑定死了就是全局
+        }
+        console.dir(a)
+        b()
+    </script>
+</body>
+</html>

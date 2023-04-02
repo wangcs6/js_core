@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的应用</title>
+</head>
+<body>
+    <script>
+        //ES6之前的旧时代，有哪些作用域？   就两种
+        //全局 + 局部（函数）
+        //自定义变量存储在 全局里，会造成全局变量污染
+        //那存放在哪里合适？？ 放局部--即函数作用域
+
+        //记录函数调用的次数
+
+        //变量n专为函数a而生,存储在全局区就不合理 -- 公有的不安全也污染全局
+        //所以：不能放在全局作用
+        //就剩下局部作用能放 -- 函数触发后生成
+
+        //思路：利用 匿名函数自调用 快速形成函数作用域
+        //(function(){})() -- 匿名函数自调用
+        var n = 0
+        
+        function a() {
+            n++
+            console.log('n:',n); 
+        }
+
+        a()  //1
+        a()  //2
+        a()  //3
+
+        // 1. 最普通
+        function c() { }
+
+        // 2. 匿名函数赋值给变量
+        var c = function () { }
+
+        // 3. 通过触发函数, 返回一个函数
+        // d函数触发后, 返回一个函数交给变量 c
+        var d = function () {
+        // var x = function () { }
+        // return x
+            return function () { }
+        }
+
+        var c = d()
+
+        // 4. 匿名函数自调用格式  (匿名函数)()
+        var c = (function () {
+            return function () { }
+        })()
+
+
+        // 4. 利用匿名函数 快速完成
+        // 改写成匿名函数自调用
+        var c = (function () {
+        // var: 在哪个作用域中执行, 变量就提升到哪个作用域
+        // 在 script 中用var, 就是全局window里
+        // 在 函数{} 中用var, 就是函数作用域的
+            var n = 0
+            return function () {
+                n++
+                console.log('c的n:', n);
+            }
+        })()
+        // (匿名函数)()
+
+        // 思考: n是记录函数c调用次数的, 他是存在全局吗? 
+        c()
+        c()
+        c()
+        c()
+        c()
+        console.dir(c)
+
+        var name =(function () {
+            var a = 1
+            return function () {}
+        })()
+    </script>
+</body>
+</html>

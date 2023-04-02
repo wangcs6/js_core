@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包again</title>
+</head>
+<body>
+    <script>
+        // 1. 函数 调用时, 会形成临时的作用域对象, 在函数运行结束后会销毁, 节省内存
+        function a() {
+            var x = 10
+
+            function b() {
+                console.log(x);
+            }
+            return b
+        }
+        var b = a()  //调用a函数，生成函数作用域
+
+        //函数执行完毕后 变量X就会销毁
+        b() // a()已经执行完毕，理论上其生成的变量x会销毁
+        // b()调用时，还能读取到x吗？
+
+        console.dir(b);
+        //b函数会把 用到的变量所在的作用域保存在自身的Scopes属性里
+        //为了后期 调用时能够正常使用，不怕销毁
+        //a函数没有销毁，因为被b保存了
+        
+        //js垃圾回收机制：没用的东西自动销毁
+    </script>
+</body>
+</html>

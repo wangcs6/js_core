@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+</head>
+<body>
+    <script>
+        //全局作用域:就是一个存储了系统api的对象
+        //不同的`宿主环境`提供的全局作用域不同
+        //宿主环境：js运行在什么环境，就称为宿主环境 --寄生/夺舍
+        //例如：在node.js中运行JS，JS的宿主就是 node环境
+        //在浏览器中运行js，浏览器就是js的宿主
+
+        console.log(window);
+        //js除了自身的语法以外，可以使用宿主的各种功能，全靠 全局作用域 对象
+        window.alert('你好')
+
+        // 全局作用域的特点:
+        // -- 其中存放了系统的各种API
+        // -- 在使用全局作用域中的属性时, 可以省略前缀 window.
+        alert('hello!')
+
+        var a = 10
+        //全局变量污染：使用var在script中声明的变量，会存储在全局作用域对象中--
+        //window里，称为全局变量污染
+        //window本来是存储系统api的，但是你把自定义的属性存储在window中，造成污染
+
+        //应用编程接口(api)  即 各种提供好的方法和属性
+    </script>
+</body>
+</html>

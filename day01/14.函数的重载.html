@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的重载</title>
+</head>
+<body>
+    <script>
+        function sum() {
+            console.log(arguments);
+            // 判断: 收到的实参是数组类型 还是 非数组类型, 进行不同的逻辑处理
+
+            // Array.isArray: 用于判断值 是不是数组类型
+            if(Array.isArray(arguments)){
+                //遍历序号0参数（数组）的长度
+                var n = 0
+                for(var i=0;i<arguments[0].length;i++){
+                    n+=arguments[0][i]
+                }
+                console.log(n);
+                
+            }else{
+            //正对非数组类型
+            var n = 0
+            for(var i = 0;i<arguments.length;i++){
+                n += arguments[i]
+            }
+            console.log(n);
+            }
+            
+            
+        }
+        sum(10,2)
+        sum(10,2,66,99)
+        sum(10,2,2,6,9,10)
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域练习</title>
+</head>
+<body>
+    <script>
+
+        /*var a =10
+        function b() {
+            var a=20
+            // var b
+            // b=20   //函数中声明了a所以修改的是函数作用域的a
+        }
+
+        b()
+        console.log(a); //10  */
+        var a=10
+        var b=20
+
+        function c() {
+            // 根据声明提升的原则: 先把 var 声明的变量, 提升到作用域的顶部
+            // var a
+            a=100  //修改的是本地的 函数中声明的a
+            b=200
+
+            var a    
+        }
+        
+        c()
+        console.log(a,b); //10,200
+        
+    </script>
+    <script>
+    // 全局作用域中的变量使用的特点?
+    // -- 可以省略 window. 前缀
+    // alert() // window.alert()
+    // b = 200  //相当于 window.b = 200   对象的属性赋值
+        var a=10
+
+
+        function c() {
+            a = 100  //赋值给c作用域中var声明的变量a
+            b = 200  // 当前函数作用域中没有 var b，所以到上层作用域查找
+            // 上层全局作用域也没有，触发另一套机制：window.b = 200;认为是省略了b前方的window
+            //---在浏览器的控制台输入window可以看到b在全局变量中。。
+            var a
+        }
+        c()
+
+        console.log(a,b);  //10,200   
+        
+    </script>
+</body>
+</html>

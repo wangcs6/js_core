@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getSum() {
+            console.log(arguments);
+            //根据参数1的类型，做两种方案
+            if (Array.isArray(arguments[0])) {
+                var arr = arguments[0]
+                var n = 0
+                for (let i = 0; i < arr.length; i++) {
+                    n+=arr[i];
+                    
+                }
+                console.log(n);
+                
+            }else{
+             if (arguments.length==1) {
+                var n = 0
+                for (let i = 0; i < arguments[0]; i++) {
+                    n += i
+                    
+                }
+                console.log(n);
+                
+             }
+             if (arguments.length==2) {
+                var n = arguments[0]
+                for (let i = arguments[0]; i < arguments[1]; i++) {
+                    n+=i
+                    
+                }
+                console.log(n);
+                
+             }
+             if (arguments.length==3) {
+                var n = arguments[0]
+                for (let i = arguments[0]; i < arguments[1]; i+=arguments[2]) {
+                    n += i
+                    
+                }
+                console.log(n);
+                
+             }
+            }
+        }
+        getSum(100)
+        getSum(50,100)
+        getSum(50,100,2)
+        getSum([1,3,5,7,9])  //0:(5) [1,3,5,7,9]
+        // 6.1号，1小时28分
+    </script>
+</body>
+</html>

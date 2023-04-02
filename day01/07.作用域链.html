@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域链</title>
+</head>
+<body>
+    <script>
+// 如何形成: 在一个作用域中触发函数 生成另一个作用域;  呈现出一种`父子`关系的效果
+// 作用域链机制: `子作用域`中使用一个变量时, 按照就近原则查找并使用
+// 通俗说: 自己有用自己的, 自己没有找爸爸, 爸爸没有找爷爷, 爷爷没有找曾爷爷
+// 总结来说: 一直向上级作用域中找, 直到找到为止.
+        //作用域链：链条 -- 多层作用域嵌套
+        function a() {
+            var a='AA'
+            var c='CCC'
+            function b() {
+                var b="BB"
+                var a = 'BBA'
+
+                function c() {
+                    console.log(a,b,c);  //打印BBA BB ƒ c() {
+                                         //console.log(a,b,c)};
+                }
+                c()
+            }
+            b()   //触发b，让其生成函数作用域
+        }
+
+        a()  //触发a函数，让其生成函数作用域
+    </script>
+</body>
+</html>

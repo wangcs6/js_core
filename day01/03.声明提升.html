@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声明提升</title>
+</head>
+<body>
+    <script>
+        // 函数是 整体提升: 函数名+函数体 一起提升
+        // 变量是 声明提升: 赋值不提升
+        var a 
+        a=10
+        console.log(a); //10
+
+        a=20
+        console.log(a);  //20
+        
+        var b= 10
+        console.log(b); //10
+
+        var b=20
+        console.log(b); //20
+        
+        
+    </script>
+</body>
+</html>

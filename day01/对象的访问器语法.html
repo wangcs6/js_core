@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的访问器语法</title>
+</head>
+<body>
+    <!-- 对象的访问器语法： 点语法 和 方括号语法 -->
+    <script>
+        var emp = { uname:'豪豪',0:'Zero',length:1}
+        console.log(emp);
+        
+
+        console.log(emp.uname);
+        console.log(emp['uname']);
+
+        //.0 会跟小数点混淆，所以官方不允许数字属性用点语法
+        // console.log(emp.0);
+        console.log(emp[0]);
+        //重大误解：下标取值是数组独有的！！ --错误的
+        //数组不支持点语法，只能用[]语法读值
+
+        var stu = {k : '格格',p:'晕晕'}
+        var p='k'
+
+
+        // 点语法: .属性名   点后面就是属性名 ,写什么是什么 -- 语法
+        console.log(stu.p);  //晕晕
+
+        // 方括号语法: [JS代码]  p是变量,其值是 'k', 所以出现: 格格
+        console.log(stu[p]); //格格
+        
+        console.log(stu['p']); //晕晕  这是个字符串不是变量
+        
+        
+        
+    </script>
+</body>
+</html>

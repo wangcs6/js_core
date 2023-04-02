@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重载练习</title>
+</head>
+<body>
+    <!-- 
+    思路: 让一个函数能够 多用(多种用途)
+    通过判断 参数的类型 或 参数的个数 来执行不同的逻辑
+   -->
+    <script>
+        // 制作一个函数，计算出折扣信息
+        function zhekou(price,zk) {
+            // if (zk=='vip') {
+            //     price*=0.7
+            // return price
+            // }else{
+            //     price*=zk
+            // return price 
+            // }
+            console.log(arguments);
+            
+            if (arguments.length==3) {
+                if (arguments[0]>=arguments[1]) {
+                    console.log(arguments[0]-arguments[2]);
+                    
+                }
+            }else{
+                
+            }
+            if (typeof zk =='string') {
+                console.log(price*0.7);
+                
+            }
+            if (typeof zk=='number') {
+                console.log(price*zk);
+                
+            }
+
+            
+        }
+        // console.log(zhekou(1000,'vip') );
+        // console.log(zhekou(1000,0.5) );
+        
+        zhekou(1000,'vip')  //7折优惠 --700
+        zhekou(1000,0.5)   //5折   --500
+        zhekou(1000,800,200)  //如果是三个参数，则是满800-200
+    </script>
+</body>
+</html>

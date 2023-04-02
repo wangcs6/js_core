@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声明提升</title>
+</head>
+<body>
+    <script>
+        //js的代码都是从上往下有运行
+        //clg
+        console.log('111');
+        console.log('222');
+        
+        // JS文件的运行方式: 与正常人的思维不同, 这正是JS的特色(反人类设计)
+        // 声明提升: JS在运行时, 会先找到所有的声明(变量), 提升到顶部, 然后再执行
+        // 方案: 为了在执行代码时, 没有遗漏变量, 所以就需要先查询出所有的变量, 提升到顶部, 然后再执行
+        
+
+        // JS中的 变量声明方式有哪些?
+        // let const var function(函数) class
+
+        // 一个同学,要到沙滩上捡贝壳, 只能捡走1个, 捡走就必须离开沙滩.. 有什么办法能捡到最漂亮的, 没有遗漏?
+        // 方案: 先收集沙滩上所有的贝壳, 然后再进行挑选
+        function a() {
+            console.log('111');
+        }
+        a()  //结果为333
+        function a() {
+            console.log('222');
+        }
+        a()  //结果为333
+        function a() {
+            console.log('333');
+        }
+        a()  //结果为333
+        
+    </script>
+</body>
+</html>

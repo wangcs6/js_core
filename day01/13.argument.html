@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>argument</title>
+</head>
+<body>
+    <script>
+    // 函数自带一个隐藏的变量: arguments
+    // 其保存了函数收到的所有 实参
+
+    // 形参: 形式参数 -- 形容接收的东西
+    // 函数: function 涛哥吃(食物){}     形参: 见名知意
+    // 使用: 涛哥吃(大腰子)  涛哥吃(煎饼)  涛哥吃(大肠刺身)  实参: 实际的值
+        function show(a,b) {
+            //arguments:隐藏的变量，保存了所有的实参
+            console.log(arguments);
+            
+            // 通过打印查看, 发现 arguments 看起来像一个数组
+            // 但是实际不是数组, 因为他没有数组的相关方法
+            // 称为: 伪数组/类(似)数组 的类型  -- 人妖
+            console.log(Array.isArray(arguments));   //false 代表不是数组
+            
+        }
+        show(11,22,33,44,55)
+    </script>
+</body>
+</html>

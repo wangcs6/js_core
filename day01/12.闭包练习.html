@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包练习</title>
+</head>
+<body>
+    
+    <script>
+    // 为什么设计闭包机制?  防止父级函数作用域中的变量自动销毁
+    // 利用闭包能做什么? 防止全局变量污染
+
+    // 闭包: 面试必考, 因为高级程序员必然会使用
+    // 但是: 我们平时写代码很少会使用, 高级程序员帮你封装好了
+
+    // 猜一猜: 函数c的闭包长什么样子?
+    // 闭包: 只存储对自己有用的属性 , 最大程度节省内存
+    function a() {
+        var aa = 10
+        var bb = 20
+        var cc = 30
+
+        function b() {
+            var aa = 100
+            var bb = 200
+
+            // 作用域链: 就近原则, 查找离自身最近的那个声明的变量
+            function c() {
+                console.log(aa,cc); //100，30
+            }
+            console.dir(c) 
+        }
+        b()
+    }
+    a()
+    </script>
+</body>
+</html>
