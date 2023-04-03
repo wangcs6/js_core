@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply</title>
+</head>
+<body>
+    <script>
+        // call函数的兄弟 -- apply: 临时把函数放对象里执行
+        var emp = {ename:'小曼',salary:10000}
+        function yearS() {
+            console.log(this.salary*12);
+            
+        }
+        yearS.call(emp)
+        yearS.apply(emp)
+        
+
+        function giveMoney(zk,kou) {
+            console.log(this.ename+'发工资：',this.salary*zk-kou);  //小曼发工资： 5000
+            
+        }
+        // call: 所有的实参要1个一个传递
+        giveMoney.call(emp,0.7,2000)
+        // apply: 所有的实参放在数组里传递
+        giveMoney.apply(emp,[0.7,2000])
+
+        // 应用场景: 可以把数组作为参数传递给 不接收数组做参数的函数
+        // 求最大值 max
+        var m = Math.max(12,3,453,676,76,78)
+        console.log(m);
+
+
+        var nums = [123, 435, 456, 567, 768, 768, 234]
+        // 求数组中的最大值:  max只接收 1个1个传递的参数, 不接收数组
+        // var m = Math.max(nums)
+        // 参数1: 随便填, 参数1代表放在哪个对象里.  求最大值这个函数的运行, 不依赖放在哪个对象里, 随意随便写
+        var m = Math.max.apply(null,nums) //apply修改参数的传递方式，改为数组
+        console.log(m);
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call案例</title>
+</head>
+<body>
+    <script>
+        // call: 临时把 `函数` 放到对象里执行, 目的是修改函数运行时的this指向
+        var emp1 = {ename:"贝贝",salary:"8000"}
+        var emp2 = {ename:"晶晶",salary:"1000"}
+        var emp3 = {ename:"欢欢",salary:"2000"}
+
+        //需求：获取员工的 年薪
+        function yearS() {
+            console.log(this.ename,'年薪',this.salary*12);
+            
+        }
+        yearS.call(emp1)   //贝贝 年薪 96000  ,这里用了call就是少写了几行下面的代码
+        // 实际上其内部执行的代码 如下:
+        // emp1.yearS = yearS  //先把函数放到对象里
+        // emp1.yearS()   // 通过对象执行函数, 导致this指向 emp1
+        // delete emp1.yearS  // 删除函数
+        yearS.call(emp2)
+        yearS.call(emp3)
+
+
+        var r1 = {width:100,height:40}
+        var r2 = {width:30,height:90}
+        var r3 = {width:70,height:10}
+
+        //得到他们的面积
+        function area() {
+            console.log('面积：',this.width*this.height);
+            
+        }
+        area.call(r1)
+
+        //升级：
+        var emp = {ename:'小曼',salary:10000}
+        function giveMoney(zk) {
+            console.log('发工资',this.salary*zk);
+            
+        }
+        // 从参数2开始, 书写传递给函数的实参---zk
+        // 参数1: 代表放在哪个对象里---emp对象
+        giveMoney.call(emp,0.5)
+        giveMoney.call(emp,0.6)
+    </script>
+</body>
+</html>

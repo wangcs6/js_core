@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的精确配置</title>
+</head>
+<body>
+    <script>
+        // 计算属性: 对象中的属性如果是 函数 && 没有参数, 就可以改造成计算属性.  使用时不需要() 来触发
+        // 利用语法糖:  get 关键词改造
+        // 原始非糖语法:
+        var r1 = {
+            width:100,
+            height:40,
+            //语法糖做计算属性：
+            get area(){
+                return this.height*this.width
+            }
+        }
+        //非糖方式：添加计算属性
+        Object.defineProperty(r1,'mianji',{
+            // get: function () {
+            //     return this.width*this.height
+            // }
+            // 
+            // 语法糖: 省略 :function
+            get () {return this.width*this.height}
+        })
+        console.log(r1.area);
+        console.log(r1.mianji);
+        
+        console.log(r1);
+        
+        
+    </script>
+</body>
+</html>

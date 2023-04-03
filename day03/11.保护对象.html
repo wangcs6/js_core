@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保护对象</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        var emp = {ename:'小曼'}
+        // prevent:阻止   Extensions:扩展
+        // 阻止对象添加新的属性 -- 增
+        // Object.preventExtensions(emp)
+
+        //seal：密封   --无法增删
+        Object.seal(emp)
+        //freeze:冻结  --无法增删改
+        Object.freeze(emp)
+
+        // emp.girl = '壮壮'
+
+        //delete emp.ename     //Uncaught TypeError: Cannot delete property 'ename' of #<Object>
+        emp.ename = 'wangcs'
+        // Cannot add property girl, object is not extensible
+        // 不能 添加 属性 girl, 对象是不可扩展的
+    </script>
+</body>
+</html>

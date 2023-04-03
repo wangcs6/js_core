@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数call</title>
+</head>
+<body>
+    <script>
+        //语法糖
+        var a =10
+        // 对象语法: {key:value, name:value, 属性名: 值}    键值对
+        // 实战中: 经常需要把变量放到对象里
+
+        // 巧合:  属性名 和 变量名 一模一样,  作者允许直接合并写到一起
+        // var emp = { ename: "小曼", a: a }
+        var emp = {ename:"小曼",a }
+        console.log(emp);
+        
+        function x() {
+            console.log('wangcs正在服务：',this);
+            
+        }
+        // 我希望 临时 让函数 x 中的this， 指向stu对象
+        // var stu = {sname:"wangcs",x}
+        var stu = {sname:"xiaoman"}
+        // stu.x()
+        // delete stu.x
+        // console.log(stu);
+        
+        // 临时借用:  先把函数存储到对象中, 然后调用, 删除
+        // 函数有一个call方法
+        // wangcs说: 有事就call我
+        // wangcs.call(小曼):   wangcs会临时放在小曼身边, 去逛街... 买完东西 就拜拜..（仅举例--纯属虚构）
+        console.dir(x)
+        x.call(stu)
+        console.log(stu);
+        
+        // 关于call: 临时把函数放在对象中执行, 执行后会自动从对象里删除
+        // -- 用途: 原型的继承操作
+
+        // 面试会问: 修改函数的this指向的方式??   回答: call,  哪里用? 继承用
+
+        
+    </script>
+</body>
+</html>

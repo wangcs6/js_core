@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展开符</title>
+</head>
+<body>
+    <script>
+        // 2015年6月: ES6诞生   JS的第六个版本
+        // 伴随着各种吐槽, JS引入了大量的新特性 新语法, 简化代码的书写
+
+        // 展开运算符: ...
+        var nums = [112,32,435,65]
+        var arr = [1,2,3,4,5]
+
+        //  ...: 去掉[]，称为展开
+        var x = [...nums,...arr]
+        console.log(x);
+
+        var m = Math.max(...nums)  //这个方法比apply更好用，直接将数组展开
+        console.log(m);
+        
+        // apply还有什么用?  面试用
+        // 面试官:  wangcs同学的基础竟然如此扎实, 连多少年前的知识点都会!  恐怖如斯!
+    </script>
+</body>
+</html>

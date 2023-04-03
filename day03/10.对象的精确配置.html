@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的精确配置</title>
+</head>
+<body>
+    <script>
+        // - writable: 是否可写,  属性能否被重新赋值
+        // - configurable: 是否可重新配置
+        // - value: 赋值
+        // - enumerable: 可遍历
+        // - get: 计算属性,  不需要() 就能触发函数
+        // - set: 属性监听器(`难`) -- 监听属性的赋值
+
+        // 属性的赋值监听
+        var emp = { ename:'小曼',age:22}
+
+        // 制作一个容器, 来存 合法的 age,  习惯添加 _ , 代表是负责存数据的属性
+        // 用 define 方式新增的属性,默认所有权限都不开放. 必须手动改成 可写入 状态
+        Object.defineProperty(emp,'_age',{writable:true})
+        //把age属性修改为监听器属性
+        Object.defineProperty(emp,'age',{
+            get(){
+                return this._age
+            },
+
+            //set:把属性修改成监听器
+            set: function (value) {
+                console.log('age收到的值:',value);
+                //假设合法的值：1-100
+                if (value>=1 && value<=100){
+                    // 合法时: 要提前制作一个变量,来存储合法的值
+                    this._age = value    //_age  声明的专门存储监测站通过的值
+                }else{
+                    throw Error('年龄赋值错误：'+ value)
+                }
+                
+            }
+        })
+
+        // 为属性赋值时, 明显有错误 -- 给出友好的提示
+        
+
+        // emp.age = 200
+        emp.age = 26
+
+        //读取age的值
+        console.log(emp.age);  //undefined是因为没用get,用完get就能读取年纪了
+        
+        console.log(emp);
+        
+    </script>
+</body>
+</html>

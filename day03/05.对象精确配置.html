@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象精确配置</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        var emp = {ename: '小曼',age:22,eid:'1001'}
+        Object.defineProperty(emp,'eid',{
+            writable:false,      //可写：假
+            configurable:false,  //可重新配置：假,代表不可以  ---相当于锁门
+        })
+        // 场景模拟:
+        // 小曼是一个 有点技术的高手, 逆反心理强烈: 你不让改 我就要改
+        // 强行把 不可写的属性改为可写
+        // Object.defineProperty(emp, 'eid', { writable: true })
+
+         // 当 属性变为不可配置状态:  无法重新配置 也无法删除 -- 超级安全
+        delete emp.eid
+
+        emp.eid = '9999'
+        console.log(emp);
+        
+    </script>
+</body>
+</html>

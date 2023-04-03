@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的精确配置</title>
+</head>
+<body>
+    <script>
+        var emp = {
+            ename:"wangcs",
+            salary:9999,
+            wife:"xiaoman",
+            eid:'1002'
+
+        }
+
+        // Object.defineProperty(emp,'wife',{
+        //     enumerable:false
+        // })
+        // Object.defineProperty(emp,'salary',{
+        //     enumerable:false
+        // })
+
+         // 提供了 defineProperties 方法, 可以配置多个
+         Object.defineProperties(emp,{
+            wife:{enumerable:false,writable:false,configurable:false},
+            salary:{enumerable:false}
+         })
+        console.log(emp);
+        // for..in..:遍历对象
+        for(var key in emp){
+            console.log('key:',key);
+            
+        }
+        console.log(emp.wife);   //不能遍历，不影响直接读取
+        
+    </script>
+</body>
+</html>

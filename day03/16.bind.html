@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind</title>
+</head>
+<body>
+    <script>
+        // bind和apply很相似
+        // call, apply:  会临时放在对象中, 然后立刻触发函数
+        // bind: 绑定.  函数和对象绑定在一起,  但是不会触发. 返回绑定完毕的新函数
+        var emp = {enname:'小曼',salary:10000}
+        function giveMoney(zk,kou) {
+            console.log('发工资',this.salary*zk-kou);
+            
+        }
+        // 场景模拟: 财务人员到壮壮面前, 计算工资, 告诉他  这个月工资 -500
+        // 小曼会怎么样?
+
+        // 先把 发工资的方法 和 小曼绑定在一起, 但是不立刻触发
+        var gm = giveMoney.bind(emp,0.4,5000)
+        console.dir(gm);
+        
+        setTimeout(() => {
+            gm()  //触发
+        }, 5000);
+        
+        // bind方法: 把函数,参数,对象都绑定在一起, 以后再触发. 特别适合定时器
+        // 学习 React 时候会用到 -- 要学死了。。
+
+        // 面试题通常问: 修改函数的this指向有哪些方式
+        // 回答: call bind apply   -- 5星好评
+    </script>
+</body>
+</html>

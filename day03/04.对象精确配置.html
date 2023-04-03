@@ -7,10 +7,25 @@
     <title>对象属性的精确配置</title>
 </head>
 <body>
+    <!-- 精确配置对象的属性, 可以让用户使用时 更加的规范 安全 可靠 -->
     <script>
+        'use strict'
         var emp = {ename:'楠姐',age:18,eid:'1001'}
+        console.dir(Object);
+        // Object: 是对象类型的构造函数, 其中存储了很多操作对象的方法
 
-        //eid:是唯一标识，要求不可修改
+        // eid: 是唯一标识, 要求不可被修改
+        // defineProperty: 用于精确配置对象属性
+        // 参数1:要配置的对象  参数2: 要配置的属性名  参数3: 配置项
+        
+        
+        Object.defineProperty(emp,'eid',{
+             // ctrl + i :可以弹出提示
+            writable:false   //是否可写  ---是否可以被修改
+
+        })
+
+        emp.eid = '9999'
         console.log(emp);
         
     </script>

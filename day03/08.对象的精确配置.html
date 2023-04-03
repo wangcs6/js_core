@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的精确配置</title>
+</head>
+<body>
+    <script>
+        //语法糖：作者为一些常用的写法 提供 缩减的语法，让代码变得更简单
+        var r1 = {
+            width:100,
+            height:50,
+            // 在对象中，function 可以省略不写，作者认为function太长
+            // area: function () {
+            
+            // 计算属性：没有参数的函数，可以添加get关键词前缀，让其调用时省略(),---装逼使用（点赞）
+            //函数使用时，不用(),形式上像读取属性一样 -- 计算属性
+            get area(){
+                return this.width * this.height
+            }
+        }
+        console.log(r1.area);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day03的作业</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        var emp = { ename:"小曼", salary: 20000 }
+
+        Object.defineProperty(emp,'_salary',{Writable:true})
+        Object.defineProperty(emp,'age',{
+            get(){
+                return this._salary
+            },
+            set: function (value) {
+                console.log('salary收到的值:',value);
+                if (value>=1000 && value<=30000) {
+                    this._salary = value
+                }else{
+                    throw Error('薪资错误：'+value)
+                }
+                
+            }
+        })
+        // 薪资范围是 1000 ~ 30000
+        
+        
+        emp.salary = 40000 //报错: 提示薪资错误
+
+        emp.salary = 24000 // 可以正常赋值
+
+        console.log(emp.salary) // 打印出24000
+    </script>
+</body>
+</html>

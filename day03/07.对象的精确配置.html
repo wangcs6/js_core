@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的精确配置</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        // 通过 define 方式, 可以为对象新增属性
+        var emp = {ename:"小曼"}
+
+        emp.age = 19      //点语法
+        emp['salary'] = 9999   //方括号语法
+
+        // defineProperty: 可以多用
+        // 1. 可以对 已有的属性进行配置
+        // 2. 可以 增加 新的属性  
+        //    -- 所有配置默认都是假 -不可写,不可删,不可遍历,不可重新配置
+        Object.defineProperty(emp,'eid',{value:'1002'})
+
+        //emp.eid = '9999'   不能修改值 --writable负责
+        //delete emp.eid      不能删除  --configurable 负责
+
+        for (var key in emp){
+            console.log(key);
+           
+        }
+        console.log(emp);
+
+
+        //为数组的原型添加一个求和
+        //原型中增加属性，理论上都应该是不可遍历的，用define来增
+        // 向 Array.prototype 中, 添加属性 'sum', 值是 function(){...}
+        Object.defineProperty(Array.prototype,'sum',{
+            value:function () {
+                var n = 0
+                for (let i = 0; i < this.length; i++) {
+                    n+= this[i];
+                    
+                }
+                return n
+            }
+        })
+
+
+        // Array.prototype.sum = function () {
+        //     var n = 0
+        //     for (let i = 0; i < this.length; i++) {
+        //         n+= this[i];
+                
+        //     }
+        //     return n
+        // }
+
+
+        var nums = [11,22,33,44,55]
+        console.log(nums);
+
+        // for..in: 遍历到 八辈祖宗 - 自身 + 原型 + 原型的原型...
+        // 能把所有遍历的都查出来
+        for (var key in nums){
+            console.log(key);   
+        }
+        
+        
+    </script>
+</body>
+</html>
