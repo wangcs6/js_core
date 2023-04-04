@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6作用域</title>
+</head>
+
+<body>
+  <script>
+    // 在 ES6 中, 提供了 新的作用域 和 新的声明方式
+    // 新增作用域: script脚本作用域   block块级作用域
+    // 两个声明关键词: let  const
+
+    var a = 10
+    let aa = 20
+    const aaa = 30
+    console.log(1111)
+
+    // 块级作用域:
+    // ES6之前: 利用 闭包 来制作私有的变量, 专为函数服务?
+    // ES6之后: 闭包难用,广受吐槽 -- 块级
+    {
+      // {} 必须搭配 let/const 使用, 产生块级作用域
+      let n = 0
+      const nn = 10
+      var abb = 11
+      console.log(222)
+    }
+
+    // 函数 块  全局: 互相独立
+    // 全局区分两种: window 和 script
+    var ee = 10 //存在window里
+    let ee = 10 //存在脚本里, let不允许全局中重复声明同名变量
+  </script>
+</body>
+
+</html>

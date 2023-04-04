@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组解构</title>
+</head>
+<body>
+    <script>
+        var nums = [11, 22, 33, 44]
+
+        // 需求: 把数组中的值存储在不同的变量里
+        // var a = nums[0]
+        // var b = nums[1]
+        // var c = nums[2]
+        // var d = nums[3]
+        // console.log(a,b,c,d);
+        
+
+        // 解构语法:
+        var [a,b,c,d] = nums
+        console.log(a,b,c,d); 
+
+        var kun = ['唱', '跳', 'rap', '蓄意篮球']
+        // 把技能存储在 q w e r 4个变量里
+        var [a,b,c,d] = kun
+        console.log(a,b,c,d);
+
+        // 可选解构
+        var names = ['亮亮', '铭铭', '楠楠', '壮壮', '涛涛']
+        //             n1     n2     n3             n4
+        var [n1,n2,n3, ,n4] = names  //跳过'壮壮'
+        console.log(n1,n2,n3,n4);
+        
+        // 灵活应用: 互换变量的值
+        var x = 10
+        var y = 200;
+        
+        // 先运行右侧的表达式 [y, x] -> [200, 10] 数组
+        // 然后: 解构赋值, 造成互换的效果
+        var [x,y] = [y,x]   //解构的思想
+        console.log(x,y);
+        
+        
+    </script>
+</body>
+</html>

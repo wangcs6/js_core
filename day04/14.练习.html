@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+<body>
+    <script>
+        var nums = [12, 3, 43, 12, 43, 5454, 6]
+
+        // 需求: 计算出所有元素之和
+        // for..of
+        var item = 0
+        for (const value of nums) {
+            item += value
+        }
+        console.log(item);
+
+        // forEach
+        var a = 0
+        nums.forEach(element => a += element);
+        console.log(a);
+
+        // 升级:
+        var products = [
+        // checked: 代表是否勾选
+        { pname: "苹果", price: 15, num: 4, checked: true },
+        { pname: "香蕉", price: 6, num: 14, checked: false },
+        { pname: "鸭梨", price: 24, num: 1, checked: false },
+        { pname: "橘子", price: 10, num: 20, checked: true },
+        ]
+
+        // 计算出勾选状态下的商品总金额:  尽力简化
+        // 利用隐式转换: true-1  false-0
+        // checked为真:  价格x1     checked为假: 价格x0 == 0
+        var sum = 0
+        products.forEach(val => {sum += val.price*val.num*val.checked});
+        console.log(sum);    //最简单
+        //下面是用if语句写了一个checked为false的语句
+        var sum = 0
+        products.forEach(val => { if (!(val.checked)) sum += val.price*val.num });  //if省略了{ }
+
+        // 语法糖:  if 的 {} 只有一行代码, 可以省略{}
+        // if(){ xxx }     if() xxx
+        console.log(sum);
+        
+        //for in  专门为对象 
+        var a =0
+        for (const key in products) {
+            if (Object.hasOwnProperty.call(products, key)) {
+                a += products[key].price*products[key].num;   
+            }
+            console.log(a);   
+        }
+        //for each  代码简单，写起来很方便
+        var a = 0
+        products.forEach(element => a += element.price*element.num);
+        console.log(a);
+        
+    </script>
+</body>
+</html>

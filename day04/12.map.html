@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map 映射</title>
+</head>
+<body>
+    <script>
+        // map: 映射 - 按照一定的规则把数组的每个元素修改后 形成新的数组
+        var nums = ['mike','lucy','lily','kitty','xiaoman']
+        // 要求: 把数组中的元素都变大写
+        var a = nums.map(val => val.toUpperCase())
+        console.log(a);
+        
+        // map的实战场景: 通常是把数据 映射成 HTML代码
+        var btns = nums.map(v => `<button>${v}</button>`)
+        console.log(btns);
+
+        // 实战中: 发请求获取数据 -> 用map映射成HTML代码 -> 拼接成字符串 -> 利用DOM技巧添加到页面上
+        
+    </script>
+</body>
+</html>

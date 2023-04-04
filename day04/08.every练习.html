@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>every练习</title>
+</head>
+<body>
+    <script>
+        // every: 每个, 数组的一个方法, 属于高阶函数
+        // 高阶函数: 函数中使用其他的函数, 常见形势: 参数是函数类型
+        // every: 自动遍历数组, 验证每一个元素是否符合条件
+        var nums = [12,434,65,21,32,4]
+        var a = nums.every((value,index,array) => {
+            return value % 2 == 0
+        })
+        console.log(a ? '都是偶数' : '非都是偶数');
+        
+        // 简化1: 如果形参没有被使用, 可以省略, 例如 index array
+        var a = nums.every((value) => {
+            return value % 2 == 0
+        })
+        console.log(a ? '都是偶数' : '非都是偶数');
+        // 简化2: 语法糖  参数只有1个 ,可以省略()
+        var a = nums.every(value => {
+            return value % 2 == 0
+        })
+        console.log(a ? '都是偶数' : '非都是偶数');
+        // 简化3: 语法糖 函数体只有一行, 省略 { return  }
+        var a = nums.every(value =>  value % 2 == 0)
+        console.log(a ? '都是偶数' : '非都是偶数');
+
+         // 简化4: 形参名 -- 推荐 见名知意; 程序员经常简写 value -> val  v
+        var a = nums.every(val =>  val % 2 == 0)
+        console.log(a ? '都是偶数' : '非都是偶数');
+
+        // 简化5: 取余的值是0 或 1, 隐式转换 0-false  1-true
+        var a = nums.every(val =>  !(val % 2))   //!0 为真
+        console.log(a ? '都是偶数' : '非都是偶数');
+
+
+        // 练习
+        var nums = [12, 3, 453, 65, 76, 33, -3]
+        
+
+        var a = nums.every(val => val>0)
+        console.log(a ? '都是正数':'非都正数');
+
+        //练习
+        var emps = [
+        { ename: "壮壮", salary: 8999, married: true },
+        { ename: "旭旭", salary: 13999, married: false },
+        { ename: "剑桥", salary: 18999, married: false },
+        { ename: "宇航", salary: 14999, married: false },
+        ]
+        // 判断 是否所有人都已婚
+
+        var m = emps.every( val => val.married)  //真==真 就是真  不用写=>val.married==true
+        console.log(m ? '都已婚':'非都已婚');
+        
+
+    </script>
+</body>
+</html>

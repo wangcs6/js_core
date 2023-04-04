@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var emps = [
+        { ename: "凯凯1", age: 23, salary: 7000, married: true },
+        { ename: "凯凯2", age: 33, salary: 17000, married: true },
+        { ename: "凯凯3", age: 44, salary: 9000, married: false },
+        { ename: "凯凯4", age: 28, salary: 12000, married: true },
+        { ename: "凯凯5", age: 35, salary: 33000, married: false },
+        ]
+
+        // 问题: 在模板字符串中书写 对象的点语法 会导致代码复杂
+        // 解决: 在使用前经常先把属性解构出来, 然后在模板中用
+        var a =emps.map(v =>{
+        var {ename,age,salary,married} = v  //解构的办法
+        return `<a class='${married ? 'ok':'err'}'>${ename}-${age}-${salary}</a>`
+        })
+
+
+        // var s =emps.map(val => `<a class='${val.married ? 'ok':'err'}'>${val.ename}-${val.age}-${val.salary}</a>`)
+
+        //升级：形参解构
+        var a =emps.map(({ename,age,salary,married})=>{  //此时就不能用语法糖，所以要加个括号
+    
+        return `<a class='${married ? 'ok':'err'}'>${ename}-${age}-${salary}</a>`
+        })
+        console.log(a);
+
+        
+
+    </script>
+</body>
+</html>

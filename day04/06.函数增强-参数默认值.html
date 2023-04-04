@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数增强-参数默认值</title>
+</head>
+
+<body>
+  <script>
+    // ES6新增特性
+    // 默认值语法  参数=值
+    // 当调用函数时, 如果不给函数传递实参, 则参数使用默认值
+    function show(name = "壮壮") {
+      console.log(name, '666');
+    }
+
+    show()
+    // 新的实参 替换默认的 值
+    show('浩浩')
+  </script>
+</body>
+
+</html>

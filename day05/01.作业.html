@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业1</title>
+</head>
+<body>
+    <script>
+        var emps = [
+        {ename:"小曼1", age: 23, salary:7000, married:true},
+        {ename:"小曼2", age: 33, salary:17000, married:true},
+        {ename:"小曼3", age: 44, salary:9000, married:false},
+        {ename:"小曼4", age: 28, salary:12000, married:true},
+        {ename:"小曼5", age: 35, salary:33000, married:false},
+        ]
+
+        // 判断是否所有人都大于30岁
+        var a =emps.every(val => val.age>30)
+        console.log(a);
+        
+        // 判断是否有人工资超过3w
+        var b = emps.some(val => val.salary > 30000)
+        console.log(b);
+        
+        // 找出所有已婚的人
+        var c = emps.filter(val => val.married)
+        console.log(c);
+        
+        // 把数组映射成html组成的数组, 其中元素样子如下:  注意 已婚 class是ok, 未婚class是err
+        // var btns = nums.map(v => `<button>${v}</button>`)
+        // console.log(btns);
+        var d = emps.map(val => {
+            if (val.married) {
+                return `<a class='ok'>${val.ename}-${val.age}-${val.salary}</a>`
+            }else{
+                return `<a class='err'>${val.ename}-${val.age}-${val.salary}</a>`
+            }
+        })
+        console.log(d);
+        
+        var s =emps.map(val => `<a class='${val.married ? 'ok':'err'}'>${val.ename}-${val.age}-${val.salary}</a>`)
+        console.log(s);
+        
+        // <a class='ok'>凯凯1-23-7000</a>
+
+    </script>
+</body>
+</html>

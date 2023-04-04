@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象解构</title>
+</head>
+<body>
+    <script>
+        // 
+        var emp = { ename: '壮壮', age: 19, phone: '18798987748' }
+
+        // 把对象中的属性拿出来 保存在变量里
+        // var ename = emp.ename
+        // var age = emp.age
+        // var phone = emp.phone
+
+        //解构
+        var { ename,age,phone} = emp
+        console.log(ename,age,phone);
+
+        var emp1 = {ename:"小曼",age:22,phone:'15380432999'}
+        
+        // 练习: 解构出 emp1 中的所有属性
+        // 对象解构, 属性无序 且 可选
+        
+        var {age,ename,phone} = emp1
+        console.log(ename,age);
+        // 别名语法 { 属性名:别名 } = 对象
+        // 取别名可以防止 与已有变量名冲突的情况,用的很少。。=>学了不知道有啥用
+
+        var {age:kai_age,ename:kai_name } = emp1
+        console.log(kai_age,kai_name);
+        
+        
+
+    </script>
+</body>
+</html>

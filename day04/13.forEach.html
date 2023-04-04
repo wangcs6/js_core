@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach</title>
+</head>
+<body>
+    <script>
+        // 遍历数组的方案:
+        var names = ['泡泡', '小曼', '涛涛', '亮亮', '壮壮', '小新']
+
+        //传统的for
+        for (let i = 0; i < names.length; i++) {
+            console.log(i,names[i]); 
+        }
+        // for..in: 用于遍历对象类型的
+        for (const key in names) {
+            if (Object.hasOwnProperty.call(names, key)) {
+               console.log(key,names[key]);   
+            }
+        }
+
+        // ES6提供了 for..of 专门遍历数组. 没有序号, 直接获取值
+        for (const value of names) {
+            console.log(value);
+            
+        }
+        // forEach: 数组的高阶函数, 用来遍历数组  没有返回值
+        names.forEach((value,index,array) => {
+            console.log(index,value);
+            
+        });
+    </script>
+</body>
+</html>

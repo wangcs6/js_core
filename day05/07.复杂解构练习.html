@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复杂解构练习</title>
+</head>
+<body>
+    <script>
+         var emp = {
+            ename: "浩浩",
+            age: 33,
+            skills: ['吃', '喝', '玩', '乐'],
+            love: ['迪丽热巴', '古力娜扎', '马尔扎哈']
+            }
+        //解构所有属性
+        var {ename,age,skills:[s1,s2,s3,s4],love:[l1,l2,l3]} = emp
+        console.log(ename,age,s1,s2,s3,s4,l1,l2,l3);
+
+         // 练习:
+        var phone = {
+            name: "iPhone13",
+            price: 7999,
+            desc: {
+            maker: 'Apple',
+            year: '2021.9'
+            },
+            tags: ['最佳cpu', 'iOS系统', '动态高刷']
+        }
+
+        // 要求: 解构出所有的属性
+        // var {name:pname} = phone  //加个别名pname
+        var {name:pname,price,desc:{maker,year},tags:[t1,t2,t3]} = phone
+        console.log(pname,price,maker,year,t1,t2,t3);
+        
+    </script>
+</body>
+</html>

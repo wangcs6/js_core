@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业2</title>
+</head>
+<body>
+    <script>
+        var products = [
+        { pname: "iPhone1", price: 8999, count: 4, checked:true },
+        { pname: "iPhone2", price: 7999, count: 1, checked:true },
+        { pname: "iPhone3", price: 6999, count: 6, checked:false },
+        { pname: "iPhone4", price: 5999, count: 8, checked:true },
+        ]
+
+        // 计算出 checked 为 true, 即 勾选状态 为真的 商品总价格,  --- 关联以后的 购物车制作
+        // 分别用foreach 和 reduce 两种方式实现
+        //foreach
+        var sum = 0
+        products.forEach(val => sum += val.price*val.count*val.checked);
+        console.log(sum); 
+
+        //reduce
+        var a = products.reduce((sum,val) => sum + val.price*val.count*val.checked,0)
+        console.log(a);
+        
+        
+    </script>
+</body>
+</html>

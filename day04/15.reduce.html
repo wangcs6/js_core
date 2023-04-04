@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduce</title>
+</head>
+<body>
+    <script>
+        // reduce: 数组的元素整合, 最终得到一个值 =>这个reduce用的比较少--还难--但是它高端大气上档次
+        var nums = [12, 33, 4, 55, 6, 6]
+
+        // 用forEach 算出元素总和---相当于一个个去捐钱
+        var sum = 0
+        nums.forEach(element => sum+=element);
+        console.log(sum);
+        
+        // reduce: 把上方的代码捏合在一起:  --相当于捐钱中箱子一个一个传给人来捐钱
+        //sum相当于箱子，v相当于每个同学捐的钱   sum + v 相当于return 钱箱子+当钱同学捐的钱  0就是箱子的初始钱为空
+        var a =nums.reduce((sum,v) => sum + v ,0)
+        console.log(a);
+
+
+        var stus = [
+        // agree: 代表统一捐款
+        { sname: "壮壮", money: 50, agree: true },
+        { sname: "柯含", money: 100, agree: true },
+        { sname: "章鱼哥", money: 1000, agree: false },
+        { sname: "旭旭", money: 2000, agree: true },
+        { sname: "子龙", money: 10, agree: false },
+        { sname: "剑桥", money: 100, agree: true },
+        ]
+        // 求出愿意捐款的总和, 即 agree 为真的:  要求用 if 方式完成
+        var sum = 0
+        stus.forEach(val => {if(val.agree){ sum +=val.money}});
+        console.log(sum);  //2250
+
+        // var x = stus.reduce((sum,v) => {
+        //     if(v.agree){
+        //         return sum + v.money
+        //     }
+        // },0)
+        // console.log(x); // NaN   中途把捐钱箱子拿走了
+        var x = stus.reduce((sum,v) => {
+            if (v.agree) {
+                return sum + v.money
+            }else{
+                return sum   //这里必须有返回值
+            }
+        },0)
+        console.log(sum);  //2250
+        // 简化语法:  同意就加上, 不同意就 +0  乘false 相当于 乘0
+        var x = stus.reduce((sum,val) => sum += val.money*val.agree,0)
+        console.log(x);  //2250
+        
+        
+
+        var a= stus.reduce((sum,v) => sum + v.money,0)
+        console.log(a);  //3260
+        
+        
+    </script>
+</body>
+</html>

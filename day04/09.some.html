@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>some</title>
+</head>
+<body>
+    <script>
+        // some: 一些,  判断数组中是否有一些满足条件的.  即只要有就行
+        // 类似逻辑运算符中的 逻辑或  || , 有一个为真就算真
+        var nums = [12,4,45,76,23,453]
+
+        var a= nums.some((value,index,array) => {
+            return value < 20
+        })
+        console.log(a ? '有小于20的数':'没有小于20的数');
+
+        //简写
+        var a = nums.some(val => val<20)
+        console.log(a ? '有小于20的数':'没有小于20的数');
+        
+        // 练习:
+        var emps = [
+        { ename: "壮壮", age: 32 },
+        { ename: "豪豪", age: 29 },
+        { ename: "旭旭", age: 27 },
+        { ename: "宇宇", age: 25 },
+        ]
+        // 判断是否有人年龄超过30
+        var b = emps.some(val => val.age>30)
+        console.log(b ? '有人超过30':'没有人超过30');
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        // Java程序员学习JS的时候: 不知道原型机制
+        // 因为在Java中没有原型概念
+        function Rect(width,length) {
+            this.width = width
+            this.length = length
+
+        }
+
+        Rect.prototype.area = function () {
+            return this.width*this.length
+        }
+        var r1 = new Rect(10,10)
+        console.log(r1);
+        console.log(r1.area());
+        
+        //java语法，同上
+        class Rect1 {
+             // 固定名称的方法 constructor 放构造函数的代码
+             constructor(width,length){
+                this.width = width
+                this.length = length
+             }
+    
+            // 方法会自动存储在原型中, 无需用户特殊处理; 程序员不用会原型的理论就能写出规范的构造函数
+            // 省略 function 关键词
+            
+            area(){
+                 return this.width*this.length
+            }
+        }
+
+        var r1 = new Rect1(10,19)
+        console.log(r1);
+        console.log(r1.area());
+    </script>
+</body>
+</html>

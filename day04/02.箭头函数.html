@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+</head>
+
+<body>
+  <script>
+    // 在 ES6 中, 提供了箭头函数, 解决两个问题:
+    // 1. function 书写过于繁琐, 箭头函数格式更简单 && 具备更多语法糖
+    // 2. 提供新的this指向(难)
+
+    // 之前的匿名函数
+    var a = function () { }
+    var a = () => { }
+
+    // 语法糖1: 参数仅有一个时, 可以省略()  
+    var b = (name) => { }
+    // tips: 如果你安装了自动格式化, 有可能会自动补上(). 你可以在设置中单独设置不加()
+    var b = name => { } //糖
+
+    // 语法糖2: {}中仅有一行代码, 可以省略  { return  }
+    var c = (x) => { return x * 2 }
+
+    var c = x => x * 2
+
+    console.log(c(10))
+
+    // 练习: 尝试改造成语法糖
+    var d = (y) => { return y + 4 * 5 }
+    //var d = y => y + 4 * 5
+    var d = y => y + 4*5
+
+    var e = (x, y) => { return x + y }
+    var e = (x, y) => x + y
+
+    var f = (x) => { var e = 10; return x + e }
+    var f = x => { var e = 10; return x + e }
+
+    // 注意事项: 如果返回值是个对象类型, 因为对象用 {}, 在语法糖之后会被识别成函数的{}
+    // 必须用() 包围, 来防止歧义
+    var g = () => { return { name: "壮", age: 19 } }
+
+    var g = () => ({ name: "壮", age: 19 })
+  </script>
+</body>
+
+</html>

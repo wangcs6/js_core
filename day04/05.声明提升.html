@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>声明提升</title>
+</head>
+
+<body>
+  <script>
+    // let/const 是否存在提升?
+    // 通常说法: let/const 不存在提升
+    // 准确答案: let/const 存在提升, 但是 提升之后处于`暂存死区`状态 -- 在声明代码未执行前, 变量不可使用
+    // 利用强制的报错: 规范程序员的行为  先声明 再使用
+
+    // Cannot access 'a' before initialization
+    // 无法访问a, 在 声明a的代码运行前
+    let a
+
+    console.log(a) //a is not defined: 没有声明a
+
+    // var a //提升到最上方 默认值是 undefined
+    // let a
+  </script>
+</body>
+
+</html>

@@ -12,7 +12,7 @@
         var emp = { ename:"小曼", salary: 20000 }
 
         Object.defineProperty(emp,'_salary',{Writable:true})
-        Object.defineProperty(emp,'age',{
+        Object.defineProperty(emp,'salary',{
             get(){
                 return this._salary
             },

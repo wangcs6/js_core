@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数增强-剩余参数</title>
+</head>
+<body>
+    <script>
+        // 剩余参数使用 ... 作为运算符, 恰好和 展开符一模一样
+        // 但是书写位置不同, 含义不同 -- 同学必须注意区分
+
+        // 千万注意: ... 在形参中书写 和 展开符没有任何关系
+        // 用途: 代表把剩余参数( 没有对应形参, 传入的所有剩余的实参) 存储到 后面的变量里
+        function show(a,...nums) {
+            // nums: 数组类型, 其中存储了所有的剩余参数, 即  [22, 33, 44, 55]
+            console.log(a,nums);
+
+            // ES6之前, 用 arguments 来接收所有实参, 不够灵活
+            // ES6之后, 引入了更加灵活的 ... , 向接收哪些 就接收哪些,想叫什么名字就叫什么名字
+        }
+
+        show(11,22,33,44,55) 
+        
+        function a(...args) {
+            console.log(args);
+            
+        }
+        a(123,34,34545,6,4)
+    </script>
+</body>
+</html>

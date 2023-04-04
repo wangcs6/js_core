@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数的this</title>
+</head>
+
+<body>
+  <script>
+    // function的this:  必须运行后才能决定this指向
+    // 对象.函数名() : 对象
+    // 函数名() : window
+    // new 函数名() : 实例对象
+
+    // 新的需求: 能不能在函数运行前 就把this指向固定
+    // ES6之前: 使用 bind 为函数绑定 this 指向, 后续再调用
+    // ES6之后: 使用箭头函数, this会自动绑定为声明(书写)时所在作用域的this -- 永远不变
+
+    // 当前是全局作用域, 即window里书写, 所以this永远都是window
+    const a = () => { console.log('this:', this) }
+
+    var emp = { ename: '小曼', a }
+    emp.a()
+
+    // 
+    var stu = {
+      sname: "wangcs",
+      show() {
+        // 书写时,声明时: 所在作用域是? 函数作用域-show的
+        // show函数作用域的this是什么? stu 
+        // 所以: 箭头函数的this 就是stu   永远不变
+        const a = () => { console.log('this:', this) }
+        return a
+      }
+    }
+
+    var b = stu.show()
+    b() // 箭头函数
+  </script>
+</body>
+
+</html>

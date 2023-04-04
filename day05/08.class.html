@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        // class语法: 来自于 JAVA 语言
+        // 从最早期: JS 大量借鉴了 Java 的语言特征, 但是并没有引入复杂的class语法. 随着时间的发展, JS越来越强大, 大量的JAVA程序员转行到JS, 他们提出强烈的愿望: 希望JS引入 JAVA的 class 语法
+        // ES6 2015年 引入了Java语法
+        // Java的class语法非常好  但是 不普及
+        // 我们的目标: 对 class 语法做个了解  -->现在学完可能用不到。。TMD
+
+        // JS中声明对象:
+        var emp = {ename:'小曼',age:22,salary:10000}
+        console.log(emp);
+        //原型是对象
+
+        class emp1 {
+            // static: 称为静态属性, 保存在对象里直接使用
+            static ename = '小曼'
+            static age = 22
+            // 不加 static, 则无法通过对象来读取使用
+            static salary = 10000
+        }
+        console.dir(emp1)
+        // 原型是函数
+
+        // 使用时无差别
+        console.log(emp.ename);  //两个用起来一摸一样
+
+        console.log(emp1.ename);
+        console.log(emp1.salary);
+        </script>
+</body>
+</html>

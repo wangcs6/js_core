@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业3</title>
+</head>
+<body>
+    <script>
+        var a = function () {
+             // 声明时, this是x, 一辈子都是x
+            console.log(this)
+            return () => { console.log(this) }
+            }
+
+        var b = {
+            name: "B",
+            x: {
+                name: "X",
+                a
+                }
+            }
+        // a是function, 粗暴理解  对象.a()   对象就是this
+        var c = b.x.a()
+        c()   //打印结果：  object..object --都是x
+    </script>
+</body>
+</html>

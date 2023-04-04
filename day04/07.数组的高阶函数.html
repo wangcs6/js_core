@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组的高阶函数 </title>
+</head>
+
+<body>
+  <script>
+    // 高阶函数: 函数体中 有其他函数的 函数, 就叫高阶函数.  最常见的是 回调函数
+    // 亮亮讲过的数组排序 : sort 就是高阶函数
+
+    // 如下: 说 a 是高阶函数, 因为其中声明了函数b
+    // function a() {
+    //   function b() { }
+    // }
+
+    // ES6中为 数组新增了很多高阶函数:  他们都会接收一个箭头函数作为参数
+    // every: 每个, 用来检查数组中的每个元素 是否都满足条件
+    // 全真则真, 有假为假, 逻辑类似于 逻辑与 &&
+
+    var nums = [11, 22, 33, 44, 55]
+    // 需求: 判断是否每个元素都 < 50
+
+    // 数组nums中的每个元素, 都会被 箭头函数所监测  -- 自带遍历
+    var a = nums.every((value, index, array) => {
+      // 参数1: 当前元素
+      // 参数2: 当前元素的序号
+      // 参数3: 当前元素所在的数组, 即 nums
+      console.log('value:', value);
+      console.log('index:', index);
+      console.log('array:', array);
+      // 他们的关系: array[index] == value
+
+      // 返回值: 验证的结果  布尔类型
+      return value < 50
+    })
+
+    console.log(a ? '都小于50' : '非都小于50');
+  </script>
+</body>
+
+</html>
