@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        // 正则表达式: Regular Expression  RegExp
+        // 是一套字符串的模糊匹配方案, 不是 JS 独有的, 而是一套通用的方案
+        // 官方提供了一套元字符: 各自具有不同的含义
+
+        // 例如 \d 就代表一个数字
+
+        var words = '壮壮666, 今天250 还是 520'
+
+        // 要求: 获取所有的数字
+
+        // 正则表达式的字面量写法: 用  --> /正则表达式/
+        var r = /\d/g   // 类似于 '' 是字符串,  // 就是正则
+        console.dir(r)  //direct:直接输出
+        // 修饰符:  /正则/修饰符
+        // g: global全局, 所有 ==>g
+
+
+        // 字符串拥有一个 match 方法, 可以查询出符合正则要求的字符
+        // match: 匹配
+        var a = words.match(r)
+        console.log(a);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多态</title>
+</head>
+<body>
+    <script>
+         // 多态: 同一个方法由于子类的重写, 可以拥有多种表现状态
+         class Father {
+            constructor(a,b){
+                this.a = a
+                this.b = b
+            }
+            show() {
+            console.log('我喜欢吃大米饭');
+            
+         }
+         }
+
+        class Son1 extends Father {}
+        class Son2 extends Father {
+            //重写：书写一个与父类相同的方法
+            //使用时,按照就近原则 优先使用自身的
+            show(){ 
+                
+                // 通过 super关键词强行从父类读取
+                console.log('super:');
+                super.show()  //我喜欢吃大米饭
+
+                console.log('我喜欢吃面食');
+                
+            }
+        }
+        var s1 = new Son1(10,20)
+        var s2 = new Son2(11,22)
+        console.log(s1);
+        console.log(s2);
+        // s1.show()
+        s2.show()
+        
+    </script>
+</body>
+</html>

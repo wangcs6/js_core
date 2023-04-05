@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class继承</title>
+</head>
+<body>
+    <script>
+        // 面向对象的三大特征: 封装 继承 多态
+        // - 封装: 用{}把代码放在一起, 然后复用.  具体表现: 函数
+        // - 继承: 自身没有的属性, 到父类/原型中查找
+        // - 多态: 如果原型中存在方法, 但是自身有同名方法, 优先使用自身的
+
+        var nums = [11,22,33]
+        // 如果对象中添加了同名的push方法
+        // 则会优先使用对象自身的push方法, 同样的push方法, 产生不同的效果
+        nums.push = function () {
+            console.log('你被骗到了');
+            
+        }
+        nums.push(44)   //push在原型里
+        console.log(nums);
+        
+        class Father{
+            // new运算符触发构造函数, son中没有, 则触发父类的
+            constructor(a,b) {
+                this.a = a
+                this.b = b
+            }
+
+            show(){
+                console.log('show...');  
+            }
+            talk(){
+                console.log('talk...'); 
+            }
+        }
+        // extends: 继承 -> 作用是 为原型指定原型
+        // 效果: 自身没有的 到 父类(JAVA中对原型的称呼)中查找
+        class Son extends Father{
+            dispaly(){
+                console.log('dispaly...');   
+            }
+        }
+        var s1 = new Son(10,20)
+        console.log(s1);
+        s1.dispaly()
+        s1.talk()
+        s1.show()   //自身没有到extends里面去查找。。  son.prototype.__proto__ = Father.prototype
+    </script>
+</body>
+</html>

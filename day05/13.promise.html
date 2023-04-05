@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        // Promise:承诺
+        // 来自ES6的构造函数, 从语法层面简化了 多个异步函数顺序执行的回调地狱问题
+
+        // 面试必背概念:
+        // Promise 分三种状态
+        // pending: 准备状态, 刚new出来 还没执行
+        // fulfilled(已完成): 调用resolve之后进入
+        // rejected(被拒绝): 调用 reject 之后计入  
+
+        // 状态切换, 只能是:
+        // pending -> fulfilled
+        // pending -> rejected
+
+
+
+        // 先背格式: 固定
+        // 先抄20遍 熟练下:
+        // new Promise((resolve,reject) => {}).then(res => {}).catch(err => {})
+        // new Promise((resolve,reject) => {}).then(res =>{}).catch(err =>{})
+        new Promise((resolve,reject) => {
+            // resolve: 解决, 代表成功
+
+            // 触发 resolve, 就会把其参数传递给 then中的函数
+            resolve({msg:'resolve被触发'})
+
+            //reject:拒绝，代表失败
+            //触发reject，就会把参数传递给catch中的函数
+            reject({msg:'reject被触发'})
+
+        })
+            .then(res =>{
+                console.log('res:',res);
+                
+            }).catch(err =>{
+                console.log('err:',err);
+                
+            })
+    </script>
+</body>
+</html>

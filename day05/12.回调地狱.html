@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回调地狱</title>
+</head>
+<body>
+    <script>
+        // 回调: 回调函数, 通常在异步操作中使用
+        // 如果多个异步操作需要同步完成, 则代码如下
+
+        // 模拟一个注册操作: 用户名 -> 邮箱 -> 手机号 -> 注册
+        // 利用 定时器来模拟异步操作
+        // 利用 随机数来 随机判断成功与否   >0.2 算成功
+        // 写完下面这个代码人没了。。
+        setTimeout(() => {
+            var n = Math.random()
+            console.log('n:',n);
+            if (n>0.2){
+                console.log('用户验证成功');
+
+                setTimeout(() => {
+                    var n = Math.random()  //随机数
+                    console.log('n:',n);
+                    if (n>0.2) {
+                        console.log('邮箱验证成功');
+                        setTimeout(() => {
+                            var n = Math.random()  //随机数
+                            console.log('n:',n);
+                            if (n>0.2) {
+                                console.log('手机验证成功');
+                                
+                                setTimeout(() => {
+                                    var n = Math.random()  //随机数
+                                    console.log('n:',n);
+                                    if (n>0.2) {
+                                        console.log('注册成功');
+                                        
+                                    }else{console.log('注册失败');
+                                    }
+                                }, 1000);
+                            }else{console.log('手机验证失败');
+                            }
+                        }, 1000);
+                        
+                    }else{console.log('邮箱验证失败');
+                    }
+                }, 1000);
+                
+            }else{console.log('用户验证失败');}
+
+        }, 1000);
+    </script>
+</body>
+</html>
