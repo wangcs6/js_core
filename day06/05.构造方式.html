@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造方式</title>
+</head>
+<body>
+    <script>
+        var words = 'Hello world 123, you are 456, nice to 789'
+
+        // 匹配出所有的数字:  注意 /\d/ 是语法糖写法,  // 是语法糖
+        // 参数1: 正则   参数2: 修饰符
+
+        // 注意: 在JS的字符串中 \ 是转义符,  \d 会转移成 d
+        // 通过 \\ 把 \ 转化成普通的 \
+
+        var r = new RegExp('\\d','g')    //  /\d/ 这个是语法糖写法
+
+        var a = words.match(r)  //字符串.匹配(正则)
+        console.log(a);
+        
+    </script>
+</body>
+</html>

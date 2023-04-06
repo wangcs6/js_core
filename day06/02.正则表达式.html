@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        // 字符串的 match 方法, 可以把字符串中符合正则要求的字符查询出来
+
+        var words = '壮壮460  文青530  王浩610'
+
+        // 正则表达式用什么包裹? //
+        // \d : 代表1个数字
+        var r =/\d/g  //修饰符：g ---> 全局匹配global的缩写
+
+        var a = words.match(r)
+        console.log(a);
+
+        var words = 'How Are You! How Old Are You?'
+        var s = /[a-zA-Z]/g  //所有
+        // 要求: 匹配出所有的英文字母
+        var k = /[a-z]/ig   //ig:忽略大小写 + 全局匹配
+        var b = words.match(s)
+        var m = words.match(k)
+        console.log(b);
+        console.log(m);
+        
+        
+
+
+        
+    </script>
+</body>
+</html>

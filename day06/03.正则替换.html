@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则替换</title>
+</head>
+<body>
+    <script>
+        // 正则替换: 把字符串中指定的内容进行替换
+        var words = 'Hello壮壮, goodgay'
+
+        // 要求: 把英文换成 *
+        // replace: 替换
+        // 参数1: 正则   参数2: 要换成什么
+        var a = words.replace(/[a-z]/ig , '*')
+        console.log(a);
+
+        var phone = '18845987878'
+        //需求：中间4个数字改成*
+        // \d:代表1个数字
+        // {n}:代表n个
+        // (): 称为捕获组 -- 抓取正则表达式中的一部分，序号从1开始
+        var r = /(\d{3})(\d{4})(\d{4})/
+        //捕获组序号  1      2      3
+        var a =phone.replace(r,'$1****$3')
+
+        // 猜猜 $1  $3 什么意思?   $n 就代表 第n个捕获组的值
+        console.log(a);
+
+        //扩展  效果：188-4598-7878
+        var n = /(\d{3})(\d{4})(\d{4})/
+        var b =phone.replace(n,'$1-$2-$3')
+        console.log(b);
+        
+        
+    </script>
+</body>
+</html>
